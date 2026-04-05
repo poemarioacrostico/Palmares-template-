@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resonará Studio | Elite Creator Lab</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Cinzel:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="loader" aria-live="polite">
+      <div class="loader-core"></div>
+      <p data-i18n="loading">Cargando experiencia cinematográfica…</p>
+    </div>
+
+    <header class="top-nav glass">
+      <div class="logo-wrap">
+        <span class="logo-icon">✦</span>
+        <h1>Resonará</h1>
+      </div>
+      <nav>
+        <a href="#inicio" data-i18n="nav_home">Inicio</a>
+        <a href="#secciones" data-i18n="nav_sections">Secciones</a>
+        <a href="#barberia" data-i18n="nav_barber">Barbería Lab</a>
+        <a href="#blog" data-i18n="nav_blog">Blog</a>
+        <a href="#contacto" data-i18n="nav_contact">Contacto</a>
+      </nav>
+      <div class="toggles">
+        <button id="themeToggle" aria-label="Theme switch">🌗</button>
+        <select id="languageSelect" aria-label="Language switch">
+          <option value="es">ES</option>
+          <option value="en">EN</option>
+          <option value="pt">PT</option>
+        </select>
+      </div>
+    </header>
+
+    <main>
+      <section id="inicio" class="hero parallax">
+        <div class="hero-content glass">
+          <h2 data-i18n="hero_title">No esperes claridad: constrúyela hoy.</h2>
+          <p data-i18n="hero_mystery">
+            Todo creador teme quedarse sin rumbo. Aquí conviertes ruido en sistema.
+          </p>
+          <p data-i18n="hero_truth">
+            Menos promesas, más procesos: diseña, produce, publica y cobra con enfoque real.
+          </p>
+          <div class="hero-actions">
+            <button class="primary" onclick="scrollToId('secciones')" data-i18n="cta_start">
+              Activar laboratorio
+            </button>
+            <button class="secondary" id="openManifesto" data-i18n="cta_manifesto">
+              Ver manifiesto global
+            </button>
+          </div>
+        </div>
+        <div class="resonar-box glass">
+          <h3 data-i18n="future_pronouns_title">Resonar en futuro</h3>
+          <ul>
+            <li>Yo <strong>resonaré</strong></li>
+            <li>Tú <strong>resonarás</strong></li>
+            <li>Él / Ella <strong>resonará</strong></li>
+            <li>Nosotros <strong>resonaremos</strong></li>
+            <li>Vosotros <strong>resonaréis</strong></li>
+            <li>Ellos <strong>resonarán</strong></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="media-strip glass" id="media">
+        <h3 data-i18n="media_title">Muestras audiovisuales</h3>
+        <div class="media-grid">
+          <video controls preload="none" poster="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800">
+            <source src="https://cdn.coverr.co/videos/coverr-lights-in-the-concert-1579/1080p.mp4" type="video/mp4" />
+          </video>
+          <audio controls preload="none" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+        </div>
+      </section>
+
+      <section id="secciones" class="sections-area">
+        <h2 data-i18n="sections_title">9 secciones estratégicas de ejecución</h2>
+        <div id="sectionsContainer" class="cards-grid"></div>
+      </section>
+
+      <section id="barberia" class="barber-zone parallax">
+        <h2 data-i18n="barber_title">Barbería Elite: negocio + academia + estudio</h2>
+        <div class="barber-grid">
+          <article class="glass">
+            <h3 data-i18n="barber_window">Ventana oficial del negocio físico</h3>
+            <p data-i18n="barber_window_desc">Presentación premium de servicios, equipo, estilo y cultura de marca.</p>
+          </article>
+          <article class="glass">
+            <h3 data-i18n="barber_university">Universidad y academia</h3>
+            <p data-i18n="barber_university_desc">Rutas de aprendizaje con material descargable y retos semanales.</p>
+          </article>
+          <article class="glass">
+            <h3 data-i18n="barber_content">Centro audiovisual</h3>
+            <p data-i18n="barber_content_desc">Producción de contenido educativo y entretenimiento temático.</p>
+          </article>
+        </div>
+
+        <div class="booking-panel glass">
+          <h3 data-i18n="booking_title">Reserva y agenda personalizada</h3>
+          <form id="bookingForm">
+            <input required name="name" placeholder="Nombre" />
+            <input required name="date" type="date" />
+            <input required name="time" type="time" />
+            <button class="primary" type="submit" data-i18n="booking_cta">Guardar reserva</button>
+          </form>
+          <ul id="bookingList"></ul>
+        </div>
+      </section>
+
+      <section id="calendar" class="glass">
+        <div class="calendar-head">
+          <h2 data-i18n="calendar_title">Reloj + calendario de acciones</h2>
+          <p id="clock"></p>
+        </div>
+        <div class="calendar-body">
+          <input id="calendarDate" type="date" />
+          <textarea id="calendarNote" rows="3" placeholder="Nota del día..."></textarea>
+          <button id="saveNote" class="primary" data-i18n="save_note">Guardar nota</button>
+          <ul id="notesList"></ul>
+        </div>
+      </section>
+
+      <section id="blog" class="blog-zone">
+        <h2 data-i18n="blog_title">Blog quincenal</h2>
+        <div id="blogPosts" class="blog-grid"></div>
+        <form id="commentForm" class="glass mini-form">
+          <h3 data-i18n="comment_title">Comentario rápido</h3>
+          <input name="author" required placeholder="Nombre" />
+          <textarea name="text" required placeholder="Comentario"></textarea>
+          <button class="primary" type="submit" data-i18n="comment_send">Publicar comentario</button>
+        </form>
+      </section>
+
+      <section id="contacto" class="contact-zone glass">
+        <h2 data-i18n="contact_title">Contacto para revista digital</h2>
+        <form id="contactForm">
+          <input name="name" required placeholder="Nombre" />
+          <input name="email" required type="email" placeholder="Mail" />
+          <button class="primary" type="submit" data-i18n="contact_send">Enviar</button>
+        </form>
+      </section>
+
+      <section id="premium" class="premium-zone glass">
+        <h2 data-i18n="premium_title">Área privada premium</h2>
+        <form id="premiumLogin" class="mini-form">
+          <input type="password" name="password" placeholder="Contraseña" required />
+          <button class="primary" type="submit" data-i18n="premium_access">Acceder</button>
+        </form>
+        <div id="premiumContent" hidden>
+          <p data-i18n="premium_msg">Contenido exclusivo desbloqueado: masterclasses y plantillas.</p>
+        </div>
+      </section>
+
+      <section id="admin" class="admin-zone glass">
+        <h2>Backend Admin (local)</h2>
+        <p data-i18n="admin_info">Solo lectura de formularios: contactos y comentarios.</p>
+        <button id="refreshAdmin" class="secondary">Refrescar</button>
+        <div class="admin-data">
+          <div>
+            <h3>Contactos</h3>
+            <pre id="adminContacts"></pre>
+          </div>
+          <div>
+            <h3>Comentarios</h3>
+            <pre id="adminComments"></pre>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="manifestoModal" class="modal" hidden>
+      <div class="modal-content glass">
+        <button id="closeManifesto" class="secondary">✕</button>
+        <h2 data-i18n="manifesto_title">Manifiesto Global Resonará</h2>
+        <p id="manifestoText"></p>
+        <div class="downloads">
+          <button id="downloadTxt" class="primary">TXT</button>
+          <button id="downloadHtml" class="primary">HTML</button>
+          <button id="downloadPdf" class="primary">PDF</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
